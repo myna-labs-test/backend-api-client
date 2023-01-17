@@ -6,11 +6,9 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from migrations.database.connection.session import get_session
-from api.schemas.characters import Character
-from api.services.characters import get_available_characters
 from api.utils.formatter import format_models
 from api.schemas.common import SuccessfullResponse
-from api.schemas.auth import TelegramIdentity
+from api.schemas.users import TelegramIdentity
 from api.schemas.messages import Message, MessageGet, MessageCreate, MessageUpdate
 from api.services.messages import get_user_messages, add_new_message, update_message
 

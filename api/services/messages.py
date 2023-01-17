@@ -3,11 +3,11 @@ from migrations.database.models import Messages, Users
 from migrations.database.models.messages import SenderTypes
 from api.exceptions.common import BadRequest, NotFoundException, InternalServerError
 
-from api.schemas.auth import UserRegister, TelegramIdentity
+from api.schemas.users import UserRegister, TelegramIdentity
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, insert, and_, or_, update
 from sqlalchemy.exc import IntegrityError
-from api.schemas.auth import TelegramIdentity
+from api.schemas.users import TelegramIdentity
 from api.schemas.messages import MessageGet, MessageUpdate, MessageCreate
 from sqlalchemy.util._collections import immutabledict
 

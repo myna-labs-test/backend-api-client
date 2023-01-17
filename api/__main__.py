@@ -7,9 +7,8 @@ from api.exceptions.common import CommonException, InternalServerError
 from api.utils.logger import Log
 from starlette.middleware.cors import CORSMiddleware
 
-from api.endpoints.auth import auth_router
+from api.endpoints.users import users_router
 from api.endpoints.messages import messages_router
-from api.endpoints.characters import character_router
 
 app = FastAPI(title="Client API")
 origins = ["*"]
@@ -64,6 +63,5 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
-app.include_router(auth_router)
+app.include_router(users_router)
 app.include_router(messages_router)
-app.include_router(character_router)

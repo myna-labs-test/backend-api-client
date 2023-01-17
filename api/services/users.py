@@ -3,9 +3,9 @@ from migrations.database.models import Users
 
 from api.exceptions.common import BadRequest, NotFoundException, InternalServerError
 
-from api.schemas.auth import UserRegister, TelegramIdentity
+from api.schemas.users import UserRegister, TelegramIdentity, ChooseCharacter
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, insert, and_, or_
+from sqlalchemy import select, insert, and_, or_, update
 from sqlalchemy.exc import IntegrityError
 
 
@@ -34,3 +34,16 @@ async def get_tg_user_by_identity(identity: TelegramIdentity, session: AsyncSess
         return user
     except IntegrityError as e:
         raise InternalServerError(e) from e
+
+
+async def set_active_character(character: ChooseCharacter, identity: TelegramIdentity, session: AsyncSession) -> None:
+    try:
+        query = update(Users).values(
+            active_character_id=str(character.character_id)
+        ).where(
+            Users.tg_id == identity.tg_id
+        )
+        await session.execute(query)
+        await session.commit()
+    except IntegrityError as e:
+        raise NotFoundException('User or Character not found') from e
