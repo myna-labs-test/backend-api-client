@@ -9,6 +9,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from api.endpoints.auth import auth_router
 from api.endpoints.messages import messages_router
+from api.endpoints.characters import character_router
 
 app = FastAPI(title="Client API")
 origins = ["*"]
@@ -65,3 +66,4 @@ app.add_middleware(
 )
 app.include_router(auth_router)
 app.include_router(messages_router)
+app.include_router(character_router)

@@ -15,7 +15,7 @@ character_router = APIRouter(tags=["Character functionality"])
 
 # TODO: move this functionality to another service
 
-@character_router.get("/character", response_model=list[Character])
+@character_router.get("/characters", response_model=list[Character])
 async def get_user(
     session: AsyncSession = Depends(get_session)
 ) -> list[Character]:

@@ -20,7 +20,7 @@ messages_router = APIRouter(tags=["Character functionality"])
 # TODO: move this functionality to another service
 
 @messages_router.get("/user/messages", response_model=list[Message])
-async def get_user_messages(
+async def get_dialog_messages(
     message_get: MessageGet = Depends(),
     identity: TelegramIdentity = Depends(),
     session: AsyncSession = Depends(get_session)
