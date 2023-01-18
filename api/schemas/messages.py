@@ -1,7 +1,7 @@
 from datetime import datetime
 from uuid import UUID
 from pydantic import BaseModel, Field
-from migrations.database.models.messages import SenderTypes
+from migration.database.models.messages import SenderTypes
 
 
 class Message(BaseModel):

@@ -1,6 +1,6 @@
 from uuid import UUID
 from pydantic import BaseModel, Field
-from migrations.database.models.characters import CharacterTTSDriver, CharacterTextDriver
+from migration.database.models.characters import CharacterTTSDriver, CharacterTextDriver
 
 
 class Character(BaseModel):

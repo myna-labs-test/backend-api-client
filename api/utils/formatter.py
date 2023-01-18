@@ -1,6 +1,5 @@
 from traceback import format_exception
 from typing import TypeVar, Type
-from migrations.database.models.base import DeclarativeBase
 
 from pydantic import BaseModel
 

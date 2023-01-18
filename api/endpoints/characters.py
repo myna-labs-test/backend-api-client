@@ -5,7 +5,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from migrations.database.connection.session import get_session
+from migration.database.connection.session import get_session
 from api.schemas.characters import Character, CharacterChoose
 from api.services.characters import get_available_characters, get_character
 from api.utils.formatter import serialize_models

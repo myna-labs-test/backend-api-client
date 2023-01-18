@@ -1,6 +1,6 @@
 
-from migrations.database.models import Messages, Users
-from migrations.database.models.messages import SenderTypes
+from migration.database.models import Messages, Users
+from migration.database.models.messages import SenderTypes
 from api.exceptions.common import BadRequest, NotFoundException, InternalServerError
 
 from api.schemas.users import UserRegister, TelegramIdentity

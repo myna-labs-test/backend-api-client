@@ -1,5 +1,5 @@
 from uuid import UUID
-from migrations.database.models import Characters
+from migration.database.models import Characters
 
 from api.exceptions.common import BadRequest, NotFoundException, InternalServerError
 

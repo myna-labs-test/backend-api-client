@@ -7,7 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.exceptions.common import ForbiddenException
 from api.schemas.common import SuccessfullResponse
-from migrations.database.connection.session import get_session
+from migration.database.connection.session import get_session
 from api.services.users import add_new_user, set_active_character, get_tg_user_by_identity
 from api.schemas.users import UserRegister, ChooseCharacter, ActiveCharacter, TelegramIdentity
 

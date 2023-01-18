@@ -5,7 +5,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from migrations.database.connection.session import get_session
+from migration.database.connection.session import get_session
 from api.utils.formatter import serialize_models
 from api.schemas.common import SuccessfullResponse
 from api.schemas.users import TelegramIdentity

@@ -1,5 +1,5 @@
 
-from migrations.database.models import Users
+from migration.database.models import Users
 
 from api.exceptions.common import BadRequest, NotFoundException, InternalServerError
 
