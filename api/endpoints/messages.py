@@ -6,7 +6,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from migrations.database.connection.session import get_session
-from api.utils.formatter import format_models
+from api.utils.formatter import serialize_models
 from api.schemas.common import SuccessfullResponse
 from api.schemas.users import TelegramIdentity
 from api.schemas.messages import Message, MessageGet, MessageCreate, MessageUpdate
@@ -24,7 +24,7 @@ async def get_dialog_messages(
     session: AsyncSession = Depends(get_session)
 ) -> list[Message]:
     messages = await get_user_messages(message_get, identity, session)
-    return format_models(messages, Message)
+    return serialize_models(messages, Message)
 
 
 @messages_router.post("/user/message", response_model=SuccessfullResponse)

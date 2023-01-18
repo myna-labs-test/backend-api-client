@@ -18,5 +18,5 @@ def format_error(error: Exception) -> str:
     return "\n".join(lines)
 
 
-def format_models(raw: list[Type], model: Type[T]) -> list[T]:
+def serialize_models(raw: list[Type], model: Type[T]) -> list[T]:
     return [model.from_orm(elem) for elem in raw]
