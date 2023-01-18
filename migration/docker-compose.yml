@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  postgresql:
+    container_name: many-labs-postgresql
+    image: postgres
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - ./pgdata:/var/lib/postgresql
+    networks:
+      - many-labs
+  migrator:
+    container_name: many-labs-migrator
+    ports:
+      - "5432"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      - postgresql
+    networks:
+      - many-labs
+networks:
+  many-labs:
+    name: many-labs-network
